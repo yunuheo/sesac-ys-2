@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 태그 수업 2</title>
+</head>
+
+<body>
+    <!-- 현재 위치 "C:\Users\SBA\Desktop\github\sesac-ys-2\htmlCssJs"
+        ./cat.jfif : 현재 위치에 있는 "cat.jfif" 파일에 접근
+        ../ : 한 단계 앞 위치로 이동 => sesac-ys-2
+     -->
+    <img src="./cat.jfif" width="100" height="100" alt="고양이 입니다." title="고양이" />
+
+    <a href="https://www.naver.com/?mobile" target="_blank">네이버</a>
+    <!-- 새 창에서 링크를 열고싶은 경우 _blank옵션  -->
+    <hr />
+
+    <!-- form태그 연습 -->
+    <h2>회원가입</h2>
+    <form>
+        이름: <input type="text" name="name">
+        <br />
+        이메일: <input type="text" name="email" id="">
+        <br />
+        비밀번호: <input type="password" name="pw" id="">
+        <br />
+        비밀번호 확인: <input type="password" name="pw_check" id="">
+
+        <input type="button" name="input_01" value="제출">
+        <button>제출</button>
+        <br />
+        취미를 선택하세요:
+        <input type="checkbox" name="hobby" id="" value="축구"> 축구
+        <input type="checkbox" name="hobby" id="" value="야구"> 야구
+        <input type="checkbox" name="hobby" id="" value="농구"> 농구
+
+
+        <br />
+        성병을 선택하세요.
+        <input type="radio" name="gender" id="" value="여성"> 여성
+        <input type="radio" name="gender" id="" value="남성"> 남성
+        <br />
+        15세 이상인가요?
+        <input type="radio" name="is_older_15" id="" value="예"> 예
+        <input type="radio" name="is_older_15" id="" value="아니오"> 아니오
+
+        <br />
+        생년월일: <input type="date" name="birth" />
+        <br />
+        색: <input type="color">
+        <br />
+        range: <input type="range" min="1" max="10">
+        <br />
+        file: <input type="file" name="" id="">
+        <select name="select_option" id="">
+            <!-- optgroup: 옵션을 그룹화 하기 위한 태그 -->
+            <optgroup label="옵션1~2 ">
+                <option value="option1">옵션 1</option>
+                <option value="option2">옵션 2</option>
+            </optgroup>
+            <optgroup label="옵션3~4 ">
+                <option value="option3">옵션 3</option>
+                <option value="option4">옵션 4</option>
+            </optgroup>
+        </select>
+    </form>
+</body>
+
+</html>
