@@ -58,3 +58,14 @@ div.after-el::after {
     font-size: 12px;
     border-radius: 10px;
 }
+
+
+/* 속성선택자 */
+/* input태그이면서 type이 text인 태그를 선택함! */
+input[type=password] {
+    background-color: orange;
+}
+
+input[name=name] {
+    background-color: orange;
+}
