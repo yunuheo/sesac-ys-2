@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 라인상에서 먼저 쓴 것이 우선순위 높음(인라인방식,내장방식,링크방식) -->
+    <!-- *내장방식 = html 파일 내에 style 태그를 열고 css를 작성하는 것(보통 head태그 안에 씀) -->
+    <!-- <style>
+        
+        div {
+            color: orange;
+            background-color: blue;
+        }
+    </style> -->
+
+    <link rel="stylesheet" href="./css/css_1.css">
 </head>
 <body>
-    
+    <!-- *인라인 방식 = 우선순위가 가장 높음 -->
+    <!-- !important 명령어로 우선순위 변경 가능 -->
+    <!-- <div style="color: red;">hello</div> -->
+    <div>hello</div>
+    <h1>hello</h1>
 </body>
 </html>
