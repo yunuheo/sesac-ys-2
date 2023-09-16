@@ -44,3 +44,17 @@ a:visited {
 .fruits *:not(span) {
     background-color: aqua;
 }
+
+/*before::과 after::*/
+div.before-el::before {
+    content: "앞!";
+    
+}
+
+div.after-el::after {
+    content: "hot!";
+    color: white;
+    background-color: red;
+    font-size: 12px;
+    border-radius: 10px;
+}
