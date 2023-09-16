@@ -1,0 +1,26 @@
+/* '*' = 전체선택자 */
+* {
+    color: black;
+}
+
+/* 태그선택자 */
+div {
+    background-color: aqua;
+}
+
+.orange {
+    color: orange;
+}
+
+#red {
+    color: red;
+}
+
+#list_1 {
+    color: red;
+}
+
+
+
+
+
