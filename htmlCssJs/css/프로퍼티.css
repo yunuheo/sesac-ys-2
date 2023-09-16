@@ -1,0 +1,68 @@
+/*px, em, rem, % */ 
+
+/* px = 단순히 픽셀로 명시함 기본 16px */
+/* em = 부모요소의 폰트사이즈의 배율 */
+/* rem = 루트 요소의 폰트사이즈의 배율  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    font-size: 16px;
+}
+
+.font-css {
+    font-size: 1.5em;
+    font-weight: 200;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal; /
+}
+
+.parent {
+    font-size: 20px;
+}
+
+.child-font {
+    font-size: 2em;
+}
+
+.width-css {
+    background-color: blue;
+    display: inline-block;
+    min-width: 100%;
+    /* height: ;
+    min-height: ;
+    max-heihgt: ; */
+}
+
+.border-css {
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.circle {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.margin-css {
+    margin: 10px 20px 30px 40px;
+    padding: 50px 20px;
+    border: 2px solid black;
+    background-color: blue;
+    color: white;
+}
+
+.box-css {
+    background-color: blueviolet;
+    
+    /* content-box 컨텐츠의 절대적인 크기를 기준 */
+    /* border-box는 컨텐츠와 테두리를 합한게 기준 */
+    box-sizing: border-box;
+    
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+}
