@@ -1,0 +1,24 @@
+/* 하위 선택자 */
+/* div .apple {
+    color: #920000;
+} */
+
+/* 자식 선택자 */
+/* div > .apple {
+    color: #920000;
+} */
+
+/* 인접 형제 선택자 */
+/* h1태그에 인접한 ul태그 선택해줌 */
+h1 + ul {
+    font-size: 20px;
+    color: blue;
+}
+
+/* 일반 형제 선택자 */
+/* h1태그 다음의 모든 ul태그 선택해줌 */
+h1 ~ ul  {
+    font-size: 20px;
+    color: blue;
+}
+
