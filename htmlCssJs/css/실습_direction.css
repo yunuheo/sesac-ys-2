@@ -1,0 +1,43 @@
+.container1 {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    margin: 40px;
+    background-color: blanchedalmond;
+}
+
+.item {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.container2 {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 40px;
+    background-color: blanchedalmond;
+}
+
+.item {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.container3 {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    background-color: blanchedalmond;
+}
+
+.item {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+}
