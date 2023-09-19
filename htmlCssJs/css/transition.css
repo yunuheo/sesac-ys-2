@@ -1,0 +1,11 @@
+.container {
+    height: 100px;
+    width: 100px;
+    }
+
+.container:hover {
+    height: 300px;
+    width: 300px;
+    transition: 1s linear 0.5s; 
+}   
+

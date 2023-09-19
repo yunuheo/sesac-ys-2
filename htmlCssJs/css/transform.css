@@ -1,0 +1,21 @@
+.img-skew:active {
+    transform: skew(10deg, 10deg);
+}
+
+.img-rotate:active {
+    transform: rotateY(40deg);
+}
+
+.img-scale:active {
+    transform: scale(1.5);
+}
+
+.img-translate:active {
+    transform: translate(10px, 10px);
+}
+
+.img-translate:active {
+    width: 500px;
+    transform: perspective(150px) rotateY(40deg);
+    transition: transform 2s linear 1s; 
+}
