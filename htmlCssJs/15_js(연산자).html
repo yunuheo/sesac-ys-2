@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <script>
+
+        //대입연산자
+        let num1 = 5;
+        let num2 = num1;
+
+        //비교연산자
+        // ==, ===
+        console.log("80" == 80)  //값만 비교
+        console.log("80" === 80) // 자료형까지 비교
+
+        // >=, >, <=, <
+        console.log(70 <= 80) // true
+        console.log(70 >= 80) // false
+        // !=, !==
+        console.log("80" != 80) // false
+        console.log("lily" != "linda") // true
+        console.log("80" !== 80) //true
+
+        //산술연산자
+        console.log(80 + 70) //150
+        console.log(3 * 4) // 56
+        console.log(10 / 2) // 5
+        console.log(10 % 3) // 나머지 
+        console.log(2**3) //거듭제곱
+
+        //논리연산자
+        // &&, ||, !
+        
+        console.log( num1 > 4 && num1 < 8)
+        console.log(!false)
+        console.log(!null)
+        let undef
+        console.log(!undef)
+        
+        //축약형
+        let num3 = 5;
+        num3 = num3 + 1;
+        num3 += 1;
+
+        //증감연산자
+        let num4 = 5;
+        console.log(num4++)
+        console.log(num4)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.circle {
+    position: relative;
+    background-color: pink;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: move_circle 2s linear 1s infinite alternate;
+}
+
+@keyframes move_circle {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        left: 500px;
+        top: 0px;
+    }
+
+    50% {
+        left: 500px;
+        top: 500px;
+        
+    }
+
+    75% {
+        left: 0px;
+        top: 500px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+    }    
+}

@@ -1,0 +1,16 @@
+.ani {
+    position: relative;
+    animation: ani 1s linear 0s infinite alternate ;
+}
+
+@keyframes ani {
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    from {
+        margin-right: 100%;
+        width: 50%;
+    }
+}

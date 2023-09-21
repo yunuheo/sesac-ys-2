@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+        //명시적 함수
+        //(함수 호출을 먼저 할 수 있음 => 구현은 다음으로 = "호이스팅")
+        function funEx1 (){
+            console.log("hello 1")
+        }
+        //함수 표현식
+        //(호이스팅 불가능)
+        const funEx2 = function () {
+            console.log("hello 2")
+        }
+        const funEx3 = () => {
+            console.log("hello 3")
+        }
+
+        funEx1()
+        funEx2()
+        funEx3()
+
+
+        // 매개변수 여부, 반환값 여부에 따라 함수의 형태가 나눠짐
+        // 매개변수 X 반환값 X, 매개변수 O 반환값 X, 매개변수 X 반환값 O, 매개변수 O 반환값 O
+        //반환값이 있는 함수는 대체로 특정 변수에 담아서 사용될 수 있다.
+        
+        function funEx4(num1, num2) {
+            console.log("funEx4")
+            return num1 + num2;
+        }
+        let sum = funEx4(2,4)
+        console.log(sum)
+
+    </script>
+</body>
+</html>
