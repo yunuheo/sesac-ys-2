@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Pass by value
+        // 일반자료형 = 깊은복사
+        let num = 5;
+        let num2 = num;
+        num2 += 5;
+        console.log(num, num2)
+
+        // Pass by reference
+        // 객체자료형 = 얕은복사
+        let arr = [1,2,3,4,5];
+        let arr2 = arr;
+        arr2.reverse()
+        console.log(arr, arr2)
+
+        //js의 표준 객체
+        let date = new Date();
+        console.log(date.getDay());
+        console.log(date.getFullYear());
+        console.log(date.getMonth()+1);
+        console.log(date.getHours());
+
+        // 만료기간 체크하는 기능
+        let expired = new Date("2023-09-30").getTime();
+        let today = new Date().getTime();
+
+        if (expired < today) {
+            console.log("만료일이 지났습니다.")
+        }
+        else {
+            console.log("사용 가능합니다.")
+        }
+
+        
+    </script>
+</body>
+</html>

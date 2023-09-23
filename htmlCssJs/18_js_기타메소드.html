@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기타메소드</title>
+</head>
+
+<body>
+    <script>
+        /*
+            arr.filter(): 배열 내부에서 조건에 부합하는 요소만 찾아서 배열로 반환
+            arr.find(): 배열 내부에서 조건에 부합하는 첫번째 요소를 찾아서 "값"으로 반환
+            arr.map(): 익명함수에 쓰여진 연산결과를 새로운 배열로 반환
+         */
+
+         let numbers = [1,2,3,4,5];
+        //배열의 마지막 요소를 제거
+        numbers.pop();
+        console.log("pop",numbers);
+
+        //복습 ㄱㄱ
+        // console.log("shift", numbers.shift())
+        // console.log("unshift", numbers.unshift())
+
+        //포함 되어 있는지 검사
+        console.log(numbers.includes(3));
+
+        //원소의 인덱스 구해줌
+        console.log("indexOf 5", numbers.indexOf(4))
+        console.log("indexOf 5", numbers.indexOf(2))
+
+        //역순으로 바꿈
+        numbers.reverse()
+        console.log("reverse", numbers);
+
+        [1,2,3].join("") // "123" => 문자열로 출력해줌
+        
+        console.log("join", numbers.join(""))
+        console.log(["a","p","p","l","e"].join(""))
+        //중간에 콤마 넣고 싶을 경우 join 인자에 "," 추가
+        console.log(["a","p","p","l","e"].join(","))
+
+        let str = 'Happy Day~!'
+        console.log("문자열 길이: ", str.length)
+
+        /*
+        replace(문자열1,문자열2): 문자열1을 문자열2로 변경
+        replaceAll(문자열1, 문자열2): 문자열을1을 전부찾아서 문자열 2로 바꿔줌
+        repeat(n): 문자열에 대해 n번 반복
+        trim(): 문자열 양끝 공백 없애기
+        split(): 매개변수로 들어온 문자열을 기준으로 str을 쪼개서 배열로 저장*/
+
+        //메소드 체이닝(method chaining)
+        //'hello'.split("").reverse().join("") => ['o','l','l','e','H'].join("")과 동일
+        let name = "heoyoonwoo";
+        console.log(name.split("").reverse().join(""))
+        console.log(name.toUpperCase())
+        
+        //처음 발견한 글자만 대체
+        console.log(name.replace('o','O'))
+        //모든 글자를 대체
+        console.log(name.replaceAll('o','O'))
+        console.log(name.repeat(3))
+        console.log(name.split(''))
+
+        
+    </script>
+</body>
+
+</html>
