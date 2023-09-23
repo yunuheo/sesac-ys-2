@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_for문</title>
+</head>
+
+<body>
+    <script>
+        //초기값; 조건문; 증감문
+        for (let i = 0; i < 10; i++) {
+            //명령문(반복하고 싶은 코드)
+            // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+            console.log(i + "안녕!")
+        }
+        console.log("끝")
+
+        // 중첩 for문
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                console.log(`i: ${i}, j: ${j}`)
+            }
+        }
+        // 초기값; 조건식; 증감문
+        for (let i = 0; i < 10; i = i + 2) {
+            console.log(`i: ${i}`)
+        }
+        for (let i = 10; i > 0; i--) {
+            console.log(`i: ${i}`)
+        }
+        for (let i = 10; i > 0; i = i - 3) {
+            console.log(`i: ${i}`)
+        }
+
+        //continue;
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 == 0) continue;
+            console.log(i);
+        }
+
+
+        // for / of 문
+        for (let fruit of fruits) {
+            console.log(fruit)
+        }
+
+
+
+        //forEach문
+        //forEach문 = js배열 객체 내에 선언되어 있는 메소드
+        //for Each함수 사용법: 배열.forEach()
+
+        // animal.forEach((fruit, index, arry)=>{
+        //     첫번째 매개변수: 탐색된 원소
+        //     두번재 매개변수: 인덱스
+        //     세번재 매개변수: 배열(animal)이름    
+        // })
+        let animal = ["cat", "dog", "turtle"]
+        animal.forEach((fruit, index) => {
+            console.log(fruit)
+            console.log(index)
+        })
+
+    </script>
+</body>
+
+</html>

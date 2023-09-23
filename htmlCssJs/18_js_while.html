@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문</title>
+</head>
+<body>
+    <!-- for문과 while문 비교
+    for문 = 반복횟수를 특정할 수 있을 경우
+    while문 = 반복횟수를 예측할 수 없을 때 -->
+    
+    <script>
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        let i = 0;
+        while (i < 10) {
+            //조건이 true일 경우 실행할 명령문
+            console.log(i);
+            i++; // 증감문
+        }
+
+        
+        while (true){
+            let number = Number(prompt("양수를 입력하세요"))
+            
+            if (number > 0) break;
+            console.log("안녕")
+                
+        }
+        console.log("끝")
+
+        
+        
+    </script>
+</body>
+</html>
