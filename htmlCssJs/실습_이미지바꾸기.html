@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        #img {
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        #buttons {
+            text-align: center;
+        }
+
+        .buttons button {
+            background-color: rgb(32, 29, 29);
+            color: white;
+        }
+
+        #container {
+            width: 550px;
+            height: 550px;
+            border: 1px solid black;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="img">
+            <img src="./img/cat.jfif" alt="" width="500px" style="text-align: center;" id="cat">
+        </div>
+    </div>
+
+    <div id="buttons">
+        <button type="button" id="p1" onclick="cat()">버튼1</button>
+        <button type="button" id="p2" onclick="city()">버튼2</button>
+        <button type="button" id="p3" onclick="cloud()">버튼3</button>
+        <button type="button" id="p4" onclick="coffee()">버튼4</button>
+    </div>
+
+    <script>
+        function cat() {
+            $('#cat').attr("src", "img/cat.jfif")
+        }
+        function city() {
+            $('#cat').attr("src", "img/city.png")
+        }
+        function cloud() {
+            $('#cat').attr("src", "img/cloud.png")
+        }
+        function coffee() {
+            $('#cat').attr("src", "img/coffee.jpeg")
+        }
+    </script>
+</body>
+
+</html>
