@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 계산기</title>
+</head>
+
+<body>
+
+    값1: <input type="text" id="value1"> <br>
+    값2: <input type="text" id="value2"><br>
+    연산자: <input type="text" id="operator"><br>
+    결과: <input type="text" id="result" readonly><br>
+
+
+
+    <button type="button" onclick="calculate()">계산하기</button>
+    <button type="button" onclick="reset()">초기화</button>
+
+    <script>
+        value1 = document.getElementById("value1").value;
+        value2 = document.getElementById("value2").value;
+
+        operator = document.getElementById("operator");
+
+
+        function calculate() {
+            const value1 = Number(document.getElementById("value1").value);
+            const value2 = Number(document.getElementById("value2").value);
+            const operator = document.getElementById("operator").value;
+
+            if (operator == "+") {
+                result = value1 + value2;
+            } else if (operator == "-") {
+                result = value1 - value2;
+            } else if (operator == "*") {
+                result = value1 * value2;
+            }
+            else if (operator == "/") {
+                result = Math.floor(value1 / value2);
+            }
+
+            document.getElementById("result").value = result;
+
+            console.log(result)
+        }
+
+        function reset() {  //form태그의 type="reset"을 사용하면 자동 구현됨
+            document.getElementById("value1").value = "";
+            document.getElementById("value2").value = "";
+            document.getElementById("operator").value = "";
+            document.getElementById("result").value = "";
+        }
+
+    </script>
+</body>
+
+</html>
