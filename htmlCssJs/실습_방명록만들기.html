@@ -32,31 +32,33 @@
     <script>
         let num = 1;
         function addRow() {
+            const date = new Date();
+            const dateToString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}-${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
             // input 2개의 값을 가져와야 함.
             const name = document.querySelector("[name=name]").value;
-            const contnet = document.querySelector("[name=content]").value;
+            const content = document.querySelector("[name=content]").value;
             // 번호, 작성일
+
             // num을 => tbody의 children 개수 ==> tbody 선택 tbody.childeren.length
-            const date = new Date();
-            const dateString = `${date.getFullYear}-${date.getMonth()+1}`
+            //ㄴ위 방법 대신 num변수에 1씩 더하여 구현함
 
             // tr태그 만든다
             const tr = document.createElement("tr");
-            
+
             /* tr.innerHTML = `<td>${num}</td>
             <td>${name}</td>
             <td>${content}</td>
             <td>${dateString}</td>` */
-            
+
             // td태그 4개를 만든다.
             const td1 = document.createElement("td");
             td1.innerText = num;
             const td2 = document.createElement("td");
-            td2.innerText = num;
+            td2.innerText = name;
             const td3 = document.createElement("td");
-            td3.innerText = num;
+            td3.innerText = content;
             const td4 = document.createElement("td");
-            td4.innerText = num;
+            td4.innerText = dateToString;
 
             // td태그 4개를 tr태그 자식요소로 추가
             tr.append(td1)
@@ -66,29 +68,84 @@
             // tobdy태그의 자식요소로 tr태그를 추가한다.
             const tbody = document.querySelector("tbody")
             tbody.append(tr);
-            
+
             num++;
         }
 
-
-        //     function write() {
-        //     let table = document.getElementById('table')
-        //     let newRow = table.insertRow(table.rows.length)
-        //     let newCell = newRow.insertCell();
-        //     const newCell1 = newRow0.insertCell();
-        //     const newCell2 = newRow0.insertCell();
-        //     const newCell3 = newRow0.insertCell();
-
-        //     const newText0 = document.createTextNode('홍길동');
-        //     newCell0.appendChild(newText0);
-        //     const newText1 = document.createTextNode('hong@abc.com');
-        //     newCell1.appendChild(newText1);
-        //     const newText2 = document.createTextNode('25살');
-        //     newCell2.appendChild(newText2);
-        //     const newText3 = document.createTextNode('영화보기');
-        //     newCell3.appendChild(newText3);
-        // }
     </script>
+<!-- 
+    <시도해 본 코드>
+     function write() {
+     let table = document.getElementById('table')
+     let newRow = table.insertRow(table.rows.length)
+     let newCell = newRow.insertCell();
+     const newCell1 = newRow0.insertCell();
+     const newCell2 = newRow0.insertCell();
+     const newCell3 = newRow0.insertCell()
+     const newText0 = document.createTextNode('홍길동');
+     newCell0.appendChild(newText0);
+     const newText1 = document.createTextNode('hong@abc.com');
+     newCell1.appendChild(newText1);
+     const newText2 = document.createTextNode('25살');
+     newCell2.appendChild(newText2);
+     const newText3 = document.createTextNode('영화보기');
+     newCell3.appendChild(newText3);
+     }
+ -->
+
 </body>
 
 </html>
+
+
+<!-- 
+<결과 같은 다른 코드>
+    방명록입니다.<br><br>
+    <form>
+        <label for="writer"><b>작성자</b></label>
+        <input type="text" size="10" id="writer"><br>
+        <label for="content"><b>내용</b></label>
+        <input type="text" size="50" id="content"><br><br>
+    </form>
+    <input type="submit" value="작성" onclick="submit()">
+
+    <br>
+    <br>
+    <table border="1" cellspacing="0px" id="table">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+    <script>
+
+        let num = 1
+        function submit() {
+            const date = new Date();
+            const dateToString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}-${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+
+            let tr = document.createElement("tr")
+            let td1 = document.createElement("td")
+            td1.innerText = num
+            let td2 = document.createElement("td")
+            td2.textContent = document.getElementById("writer").value;
+            let td3 = document.createElement("td")
+            td3.textContent = document.getElementById("content").value
+            let td4 = document.createElement("td")
+            td4.textContent = dateToString
+
+            tr.append(td1)
+            tr.append(td2)
+            tr.append(td3)
+            tr.append(td4)
+
+            table = document.getElementsByTagName('table'); // getElementsByTagName는 '요소의 배열'을 가지고옴
+            table[0].append(tr)
+
+            num++;
+        }
+    </script>
+
+  -->
