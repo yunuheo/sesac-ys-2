@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+
+            width: 300px;
+            height: 300px;
+            transition: background-color 0.5s linear;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .violet {
+            background-color: violet;
+        }
+
+        .box.box:target {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box red" onclick="changeClass()">
+    </div>
+
+    <script>
+        const colors = ["red", "orange", "yellow", "green", "blue", "violet"]
+
+        let cnt = 0
+        function changeClass() {
+            const box = document.querySelector(".box");
+            box.classList.remove(colors[cnt % 6]);
+            box.classList.add(colors[++cnt % 6]);
+        }
+    </script>
+</body>
+</html>
