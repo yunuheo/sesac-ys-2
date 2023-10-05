@@ -1,0 +1,17 @@
+
+@media screen and (min-width: 500px){
+    
+    body {
+        background-color: skyblue;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    body {
+        background-color: orange;
+    }
+}
+
+body {
+    background-color: none;
+}

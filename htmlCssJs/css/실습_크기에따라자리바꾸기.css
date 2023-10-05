@@ -1,0 +1,29 @@
+@media screen and (min-width: 700px){
+    
+    .container {
+        display: flex;
+    }
+
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: black;
+        border: solid 1px red;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    
+    .container {
+        display: block;
+    }
+
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+        border: solid 1px red;
+        margin: 10px;
+    }
+}

@@ -1,0 +1,35 @@
+.logo {
+    padding-top: ;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+
+
+
+@media screen and (max-width: 768px){
+    
+    .menu {
+        display: block;
+        justify-content: center;
+        margin-top: 60px;
+
+        background-color: rgb(202, 227, 227);
+    }
+
+    div{
+        text-align: center;
+    }
+
+    
+
+
+}

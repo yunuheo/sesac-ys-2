@@ -53,11 +53,11 @@
         //     // $(".container").css("background-color", "red")
         // })
 
-        $(".container").click(function (event) {
+        $(".container").click(function (event) { // =>가 아닌 funtion으로 써야함
             console.log(this)
 
             $(this).css("background-color", "red")
-        })  
+        })
 
         // 마우스가 올라갔을 때, 실행시키고 싶은 코드 
         $(".container").mouseover(function () {
@@ -78,8 +78,14 @@
 
         // 스크롤 할 때
         $(document).scroll(function () {
+            // 스크롤이 바닥을 도달했을 때
+            // $(document).height() : document의 높이를 구함.
+            // 현재 스크롤 위치 : $(window).scrollTop()
+            if ($(document).height() - $(window).height() == $(window).scrollTop()) {
+                console.log("hello");
+            }
             console.log(document.body.scrollHeight)
-            console.log("hello")
+
         })
 
         // keydown: 선택한 요소에서 키보드를 누르는 이벤트가 발생할 경우
@@ -100,6 +106,13 @@
             // console.log("value",this.value)
         })
 
+        const container = document.getElementsByClassName("container")
+        // jquery의 on 과 비슷
+        for (let i = 0; i < container.length; i++) {
+            container[0].addEventListener("click", function () {  //하나의 요소만 적용되기 때문에 for문 불가피함
+                this.style.backgroundColor = "red";
+            })
+        } //jquery의 on과 js의 addEventListener의 차이점을 설명할 수 있나요?
 
 
     </script>
