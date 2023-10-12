@@ -14,8 +14,6 @@ first();
     first() 함수만 실행
     first() 함수에서는 숫자 1출력 후 second() 함수 실행 */
 
-
-
 function run() {
     console.log("3초 뒤 실행")
 }
