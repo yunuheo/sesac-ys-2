@@ -1,0 +1,7 @@
+# 현재 위치에서 해당 파일을 추적하지않겠다?
+node_modules/
+# 확장자가 json인 모든 확장자를 무시하겠다.
+# *.json
+# package.json은 무시하지 않겠다.
+# !package.json
+package-lock.json
