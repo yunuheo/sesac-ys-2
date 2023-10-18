@@ -12,7 +12,7 @@ app.get("/", function (req, res) {
 
 app.get("/get", function (req, res) {
     // console.log(req.body);
-    res.send("post 요청 성공!")
+    res.send("get 요청 성공!")
     console.log(req.query)
 
 })
