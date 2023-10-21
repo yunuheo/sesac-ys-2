@@ -1,15 +1,39 @@
-<!DOCTYPE html>
 <html lang="ko">
   <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+=======
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
     <title>실습</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<<<<<<< HEAD
+=======
+    <style>
+      * {
+        margin: 0 auto;
+        text-align: center;
+      }
+      form {
+        margin-top: 30px;
+      }
+      h1 {
+        margin-top: 30px;
+      }
+    </style>
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
   </head>
   <body>
     <h1>axios get 회원가입</h1>
     <form name="register">
+<<<<<<< HEAD
       이름 <input type="text" name="name" required>
       <fieldset>
         <legend>성별</legend>
@@ -31,43 +55,76 @@
         <input type="checkbox" value="음식" id="hobby" name="hobby"><label for="food">음식</label>
       </fieldset>
       <br>
+=======
+      이름 <input type="text" name="name" input size="5" required />
+      <fieldset style="width: 350">
+        <legend>성별</legend>
+        <input type="radio" value="남자" name="gender" id="man" /><label for="man" required>남자</label>
+        <input type="radio" value="여자" name="gender" id="woman" /><label for="woman" required>여자</label>
+      </fieldset>
+      <br />
+      <fieldset style="width: 350">
+        <legend>생년월일</legend>
+        <select name="yy" id="year"></select
+        >년
+        <select name="mm" id="month"></select
+        >월
+        <select name="dd" id="day"></select
+        >일
+      </fieldset>
+      <br />
+      <fieldset style="width: 350">
+        <legend>관심사</legend>
+        <input type="checkbox" value="여행" id="hobby" name="hobby" /><label for="man">여행</label>
+        <input type="checkbox" value="패션" id="hobby" name="hobby" /><label for="fashion">패션</label>
+        <input type="checkbox" value="음식" id="hobby" name="hobby" /><label for="food">음식</label>
+      </fieldset>
+      <br />
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
       <button type="button" onclick="axiosGet()">회원가입</button>
     </form>
-    <h3 id="result"></h3>
+    <br />
+    <i><h3 id="result"></h3></i>
     <script>
-      $(document).ready(function() {
+      $(document).ready(function () {
         var now = new Date();
         var year = now.getFullYear();
-        var mon = (now.getMonth() + 1) > 9 ? '' + (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
-        var day = (now.getDate()) > 9 ? '' + (now.getDate()) : '0' + (now.getDate());
-        //년도 selectbox만들기               
+        var mon = now.getMonth() + 1 > 9 ? '' + (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+        var day = now.getDate() > 9 ? '' + now.getDate() : '0' + now.getDate();
+        //년도 selectbox만들기
         for (var i = 1900; i <= year; i++) {
           $('#year').append('<option value="' + i + '">' + i + '년</option>');
         }
 
-        // 월별 selectbox 만들기            
+        // 월별 selectbox 만들기
         for (var i = 1; i <= 12; i++) {
-          var mm = i > 9 ? i : "0" + i;
+          var mm = i > 9 ? i : '0' + i;
           $('#month').append('<option value="' + mm + '">' + mm + '월</option>');
         }
 
         // 일별 selectbox 만들기
         for (var i = 1; i <= 31; i++) {
-          var dd = i > 9 ? i : "0" + i;
+          var dd = i > 9 ? i : '0' + i;
           $('#day').append('<option value="' + dd + '">' + dd + '일</option>');
         }
-        $("#year  > option[value=" + year + "]").attr("selected", "true");
-        $("#month  > option[value=" + mon + "]").attr("selected", "true");
-        $("#day  > option[value=" + day + "]").attr("selected", "true");
+        $('#year  > option[value=' + year + ']').attr('selected', 'true');
+        $('#month  > option[value=' + mon + ']').attr('selected', 'true');
+        $('#day  > option[value=' + day + ']').attr('selected', 'true');
+      });
 
-      })
+      //   ---------------- 생년월일 입력 ----------------
 
+<<<<<<< HEAD
       //   ---------------- 생년월일 입력 ----------------
 
       function getData() {
         const form = document.forms["register"];
 
 
+=======
+      function getData() {
+        const form = document.forms['register'];
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
 
         // hobby를 어떻게 담아야 하는지 모르겠음 => for문으로 어떻게 해봐야 할 듯...
         const data = {
@@ -76,32 +133,38 @@
           yy: form.yy.value,
           mm: form.mm.value,
           dd: form.dd.value,
-        }
+          hobby: form.hobby.value,
+        };
 
         return data;
       }
 
       function axiosGet() {
         const data = getData();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
 
         // axios 함수는 promise 객체를 return
         axios({
-          method: "GET",
-          url: "/axios",
-          params: data // get 요청으로 데이터 보낼 때 params 사용
+          method: 'GET',
+          url: '/axios',
+          params: data, // get 요청으로 데이터 보낼 때 params 사용
           // params 대신 url에 query를 직접 작성해도 됨
         }).then((res) => {
           // 서버에서 보내준 응답이 res에 담김
-          console.log("res", res)
-          console.log("res.data", res.data)
-          const {
-            name
-          } = res.data
+          console.log('res', res);
+          console.log('res.data', res.data);
+          const { name } = res.data;
 
-          $("#result").html(`axios get 요청 성공! ${name}님 환영합니다.`)
-        })
+          $('#result').html(`회원가입 성공!  ${name}님 환영합니다.`);
+        });
       }
     </script>
   </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
