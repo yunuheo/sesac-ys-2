@@ -9,7 +9,12 @@
   "js-beautify.indent_inner_html": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "js-beautify.indent_handlebars ": false
+=======
+  "js-beautify.indent_handlebars ": false,
+  
+>>>>>>> 93af86f7ea394bae8578dd2e482d15c124fa017b
 =======
   "js-beautify.indent_handlebars ": false,
   
