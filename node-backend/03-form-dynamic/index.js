@@ -1,36 +1,36 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const PORT = 8000;
 
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", function (req, res) {
-  res.render("index");
+app.get('/', function (req, res) {
+  res.render('index');
 });
 
-app.get("/ajax", function (req, res) {
+app.get('/ajax', function (req, res) {
   console.log(req.query);
   // { key: value, key: value }
   res.send(req.query);
 });
 
-app.post("/ajax", function (req, res) {
+app.post('/ajax', function (req, res) {
   console.log(req.body);
   res.send(req.body);
 });
 
-app.get("/axios", function (req, res) {
+app.get('/axios', function (req, res) {
   console.log(req.query);
   res.send(req.query);
 });
 
-app.post("/axios", function (req, res) {
+app.post('/axios', function (req, res) {
   console.log(req.body);
   const data = {
     ...req.body,
-    msg: "반가워요",
+    msg: '반가워요',
   };
   //   {
   //     id: ,
@@ -41,12 +41,12 @@ app.post("/axios", function (req, res) {
   res.send(data);
 });
 
-app.get("/fetch", function (req, res) {
+app.get('/fetch', function (req, res) {
   console.log(req.query);
   res.send(req.query);
 });
 
-app.post("/fetch", function (req, res) {
+app.post('/fetch', function (req, res) {
   console.log(req.body);
   res.send(req.body);
 });

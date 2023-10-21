@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>파일 업로드_실습</title>
+  </head>
+  <body>
+
+    <!-- 일반 폼 전송을 이용해서 파일 업로드 하기 -->
+    <!-- enctype : application/x-www-form-urlencoded(기본값) -->
+    <!-- 파일을 전송하려면 multipart/form-data로 변경해야 함. -->
+
+
+    <h2>동적 파일 업로드 실습!</h2>
+    <form name="dynamic-upload">
+      <input type="text" name="id" placeholder="아이디" />
+      <br />
+      <input type="password" name="pw" placeholder="비밀번호" />
+      <br />
+      <input type="text" name="name" placeholder="이름" />
+      <br />
+      <input type="text" name="age" placeholder="나이" />
+      <br />
+      <input type="file" name="userfile" />
+      <br />
+      <br />
+      <button type="button" onclick="dynamicUpload()">(동적 폼 전송)회원가입</button>
+    </form>
+
+
+
+    <div id="dynamic-upload-result"></div>
+
+    <script>
+      function dynamicUpload() {
+
+        const form = document.forms["dynamic-upload"]
+        const formData = new FormData();
+        formData.append("title", form.title.value);
+        // type이 file인 input태그 선택해서 files 접근 해보면
+        // console.log("value", form.userfile.value)
+        console.log("files", form.userfile.files)
+        formData.append("userfile", form.userfile.files[0])
+        formData.append("id", form.id.value)
+        formData.append("pw", form.pw.value)
+        formData.append("name", form.name.value)
+        formData.append("age", form.age.value)
+
+        // 아래 방식은 이미지 데이터를 정상적으로 처리할 수 없음.
+        // const data = {
+        //   title: form.title.value,
+        //   userfile: form.userfile.vlaue,
+        // }
+
+        axios({
+          method: "post",
+          url: "/upload/dynamic",
+          data: formData,
+          headers: {
+            "Content-type": "multipart/form-data"
+          }
+        }).then((res) => {
+          console.log(res.data)
+          const result = document.getElementById("dynamic-upload-result")
+          result.innerHTML = `<img src="/${res.data.src}" width="150"><br>
+          <div>${res.data.id}님 환영합니다!</div>
+          <br><br>
+          비밀번호: ${res.data.pw}<br>
+          이름: ${res.data.name}<br>
+          나이: ${res.data.age}
+          `
+        })
+      }
+    </script>
+
+  </body>
+</html>

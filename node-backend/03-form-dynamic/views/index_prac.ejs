@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>실습</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body>
-   <h1>axios get 회원가입</h1>
+  </head>
+  <body>
+    <h1>axios get 회원가입</h1>
     <form name="register">
-        이름 <input type="text" name="name" required>
-        <fieldset>
-          <legend>성별</legend>
-          <input type="radio" value="남자" name="gender" id="man"><label for="man" required>남자</label> 
-          <input type="radio" value="여자" name="gender" id="woman"><label for="woman" required>여자</label>
-        </fieldset>
-        <br>
-        <fieldset>
-          <legend>생년월일</legend>
-          <select name="yy" id="year"></select>년
-          <select name="mm" id="month"></select>월
-          <select name="dd" id="day"></select>일
-        </fieldset>
-        <br>
-        <fieldset>
-          <legend>관심사</legend>
-          <input type="checkbox" value="여행" id="hobby" name="hobby"><label for="man">여행</label>
-          <input type="checkbox" value="패션" id="hobby" name="hobby"><label for="fashion">패션</label>
-          <input type="checkbox" value="음식" id="hobby" name="hobby"><label for="food">음식</label>
-        </fieldset>
-        <br>
-        <button type="button" onclick="axiosGet()">회원가입</button>
+      이름 <input type="text" name="name" required>
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" value="남자" name="gender" id="man"><label for="man" required>남자</label>
+        <input type="radio" value="여자" name="gender" id="woman"><label for="woman" required>여자</label>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="yy" id="year"></select>년
+        <select name="mm" id="month"></select>월
+        <select name="dd" id="day"></select>일
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" value="여행" id="hobby" name="hobby"><label for="man">여행</label>
+        <input type="checkbox" value="패션" id="hobby" name="hobby"><label for="fashion">패션</label>
+        <input type="checkbox" value="음식" id="hobby" name="hobby"><label for="food">음식</label>
+      </fieldset>
+      <br>
+      <button type="button" onclick="axiosGet()">회원가입</button>
     </form>
     <h3 id="result"></h3>
     <script>
@@ -62,12 +62,12 @@
 
       })
 
-    //   ---------------- 생년월일 입력 ----------------
+      //   ---------------- 생년월일 입력 ----------------
 
-    function getData() {
+      function getData() {
         const form = document.forms["register"];
 
-        
+
 
         // hobby를 어떻게 담아야 하는지 모르겠음 => for문으로 어떻게 해봐야 할 듯...
         const data = {
@@ -78,12 +78,12 @@
           dd: form.dd.value,
         }
 
-        return data
+        return data;
       }
 
       function axiosGet() {
         const data = getData();
-        
+
 
         // axios 함수는 promise 객체를 return
         axios({
@@ -102,7 +102,6 @@
           $("#result").html(`axios get 요청 성공! ${name}님 환영합니다.`)
         })
       }
-
-      </script>
-</body>
+    </script>
+  </body>
 </html>
