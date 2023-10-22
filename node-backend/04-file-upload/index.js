@@ -1,13 +1,18 @@
 const express = require('express');
+
+const app = express();
+const PORT = 8000;
+
+app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const multer = require('multer'); // multer 불러오기
 const path = require('path');
 // path: 파일 경로를 받았을 때, 그 조작을 도와준다.
 // ex) 확장자 추출. 파일이름을 추출
 console.log('hi.txt의 확장자:', path.extname('hi.txt'));
 console.log('hi.txt의 이름:', path.basename('hi.txt', path.extname('hi.txt')));
-
-const app = express();
-const PORT = 8080;
 
 // 클라이언트가 uploads 폴더에 저장한 이미지파일에 접근할 수 있도록, 미들웨어 작성
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -26,6 +31,7 @@ const uploadDetail = multer({
       done(null, 'uploads/');
     },
     filename: function (req, file, done) {
+      console.log('uploadDetail filename', req.body);
       console.log(file); // file.originalname : 미니언.webp
       const ext = path.extname(file.originalname); // .webp
       const basename = path.basename(file.originalname, ext); // 미니언
@@ -44,10 +50,6 @@ const uploadDetail = multer({
 // ----- filename : 파일이 저장될 이름
 // limits
 // -- fileSize : 파일의 최대 크기
-
-app.set('view engine', 'ejs');
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
   res.render('index');
@@ -75,7 +77,7 @@ app.post('/upload/detail', uploadDetail.single('userfile'), function (req, res) 
 
 // array(): 파일 여러개 업로드. name(input)하나로 여러개의 파일을 받는 방법
 // req.files 생성
-app.post('/upload/array', uploadDetail.array('userfile'), function (req, res) {
+app.post('/upload/array', uploadDetail.array('userfile', 2), function (req, res) {
   console.log('file 여러개(ver1):', req.files);
 
   res.send('여러개 업로드 성공');
