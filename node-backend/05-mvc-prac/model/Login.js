@@ -1,29 +1,11 @@
-/*
-exports.commentInfos = () => {
-    // mysql 연결
-    // select * from comment;
-    return [
-      {
-        id: 1,
-        userid: 'yunu',
-        data: '2023-10-26',
-        comment: 'hello',
-      },
-      { id: 2, userid: 'lily', data: '2023-10-28', comment: 'hello-world' },
-    ];
-  };
-  */
+let users = `spretics//123412345//코딩온
+codee//4321//코디
+lily//1234//릴리`;
 
-exports.userInfos = () => {
-  const data = {
-    id: 'gjdbsdl123',
-    pw: 'zhsks754',
-    name: '허윤우',
-  };
-  return data;
+exports.getUser = (userID, userPW) => {
+  const userArray = users.split('\n').map((user) => {
+    const [id, pw, name] = user.split('//');
+    return { id, pw, name };
+  });
+  return userArray.find((user) => user.id === userID && user.pw === userPW);
 };
-
-/* const data = {
-    ...req.body,
-    msg: '반가워요',
-  }; */

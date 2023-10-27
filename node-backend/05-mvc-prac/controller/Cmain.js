@@ -1,11 +1,26 @@
-const { userInfos } = require('../model/Login');
+const User = require('../model/Login');
 
 exports.main = (req, res) => {
   res.render('index');
 };
 
-// axios 로직을 여기에 넣어야 하나?
 exports.login = (req, res) => {
-  const userData = userInfos();
-  res.send(userData);
+  console.log('아이디:', req.body.id, '비밀번호:', req.body.pw);
+
+  const userData = User.getUser(req.body.id, req.body.pw);
+
+  let data;
+  if (userData) {
+    data = {
+      isSuccess: true,
+      msg: `${req.body.name}님 환영합니다!`,
+    };
+  } else {
+    data = {
+      isSuccess: false,
+      msg: '아이디 또는 비밀번호를 잘못 입력했습니다.',
+    };
+  }
+
+  res.send(data);
 };
