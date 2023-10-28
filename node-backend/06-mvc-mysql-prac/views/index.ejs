@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 아래 cdn은 axios 사용을 위한 것 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgba(128, 128, 128, 0.979);
+      }
+
+      #container {
+        display: flex;
+        width: 300px;
+        margin: 250px auto;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      form[name="login"] {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        text-align: center;
+        align-items: center;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 90%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      #result {
+        margin: 20px 0;
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <form name="login">
+        <label for="id">아이디</label>
+        <input type="text" id="id" placeholder="아이디" /><br />
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw" placeholder="비밀번호" /><br />
+        <label for="name">이름</label>
+        <input type="text" id="name" placeholder="이름" /><br />
+        <button type="button" onclick="axiosPost()">로그인</button>
+        <h3 id="result"></h3>
+      </form>
+    </div>
+
+    <script>
+      function getData() {
+        const form = document.forms["login"];
+
+        if (!form.checkValidity()) {
+          // checkValidity 폼의 유효성 검사를 해서 boolean 값 반환
+          form.reportValidity(); // reportValidity: 유효성 검사를 통과하지 못 한 input에 대해 report
+          return false;
+        }
+
+        // getData라는 함수의 반환값은 총 2가지 형태
+        // false | object (객체 형태)
+
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value,
+          name: form.name.value,
+        };
+
+        return data;
+      }
+
+      async function axiosPost() {
+        // @@@@@@@@@@@@@@@@@@@@@@
+
+        // 서버에 보낼 데이터를 만들어야 함.
+        const form = document.forms["form-visitor"]
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value,
+          name: form.name.value
+        }
+        // @@@@@@@@@@@@@@@@@@@@@@
+
+        if (!data) return;
+
+        const res = await axios({
+          method: "POST",
+          url: "/axios",
+          data: data, // post일 경우 서버에 데이터를 보낼 때, data 키에 담아서 보내면 됨.
+        });
+
+        console.log("res.data", res.data);
+
+        if (res.data.isSuccess == true) {
+          $("#result").html(`${res.data.msg}`).css("color", "blue");
+        } else {
+          $("#result").html(`${res.data.msg}`).css("color", "red");
+        }
+      }
+    </script>
+  </body>
+</html>
