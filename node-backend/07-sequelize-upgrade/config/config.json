@@ -2,7 +2,11 @@
   "development": {
     "host": "localhost",
     "database": "database_test",
+<<<<<<< HEAD
     "username: ": "root",
+=======
+    "username": "root",
+>>>>>>> ffa03025d39080c633cc03e86cf5cb5b0c1f0643
     "password": "zhsks754!",
     "dialect": "mysql"
   },

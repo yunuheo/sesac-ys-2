@@ -1,6 +1,10 @@
 function Orders(Sequelize, DataTypes) {
   return Sequelize.define(
+<<<<<<< HEAD
     'orders',
+=======
+    "orders",
+>>>>>>> ffa03025d39080c633cc03e86cf5cb5b0c1f0643
     {
       orderid: {
         type: DataTypes.INTEGER,
@@ -26,7 +30,11 @@ function Orders(Sequelize, DataTypes) {
       },
     },
     {
+<<<<<<< HEAD
       tableName: 'orders',
+=======
+      tableName: "orders",
+>>>>>>> ffa03025d39080c633cc03e86cf5cb5b0c1f0643
       freezeTableName: true,
       timestamps: false,
     }

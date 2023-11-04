@@ -1,7 +1,5 @@
 {
-<<<<<<< HEAD
-=======
-  "name": "07-sequelize-upgrade",
+  "name": "14_sequelize_upgrade",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,16 +9,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
->>>>>>> ffa03025d39080c633cc03e86cf5cb5b0c1f0643
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mysql2": "^3.6.2",
-<<<<<<< HEAD
-=======
+    "mysql2": "^3.6.0",
     "nodemon": "^3.0.1",
->>>>>>> ffa03025d39080c633cc03e86cf5cb5b0c1f0643
-    "sequelize": "^6.33.0",
+    "sequelize": "^6.32.1",
     "sequelize-cli": "^6.6.1"
   }
 }

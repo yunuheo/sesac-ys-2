@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>방명록</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <form name="form-visitor">
@@ -62,11 +66,7 @@
           data: data,
         }).then((res) => {
           // axios 응답을 받으면, table에 행 추가 (동적으로)
-          const {
-            id,
-            username,
-            comment
-          } = res.data;
+          const { id, username, comment } = res.data;
 
           $('tbody').append(`<tr id="tr_${id}">
             <td>${id}</td>
@@ -101,10 +101,7 @@
           method: 'get',
           url: `/visitor/${id}`,
         }).then((res) => {
-          const {
-            username,
-            comment
-          } = res.data;
+          const { username, comment } = res.data;
 
           const form = document.forms['form-visitor'];
           form.username.value = username;
@@ -122,14 +119,14 @@
         const form = document.forms['form-visitor'];
 
         axios({
-            method: 'patch',
-            url: '/visitor',
-            data: {
-              id: id,
-              username: form.username.value,
-              comment: form.comment.value,
-            },
-          })
+          method: 'patch',
+          url: '/visitor',
+          data: {
+            id: id,
+            username: form.username.value,
+            comment: form.comment.value,
+          },
+        })
           .then((res) => {
             console.log(res.data);
             return res.data;
