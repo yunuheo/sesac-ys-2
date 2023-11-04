@@ -1,9 +1,9 @@
 {
   "development": {
     "host": "localhost",
-    "database": "sesac_test",
-    "username: ": "user",
-    "password": "zhsks754!",
+    "database": "database1",
+    "username": "root",
+    "password": "1234",
     "dialect": "mysql"
   },
   "production": {

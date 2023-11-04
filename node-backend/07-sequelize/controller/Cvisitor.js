@@ -9,7 +9,7 @@ exports.visitor = (req, res) => {
   // select * from visitor;
   Visitor.findAll().then((result) => {
     console.log('findAll result', result);
-    console.log('0 index의 username', result[0].username);
+    //console.log('0 index의 username', result[0].username);
     // 기대 : [{id: , username:}, {id: , username:}]
     res.render('visitor', { data: result });
   });
@@ -22,18 +22,18 @@ exports.visitor = (req, res) => {
 // POST /visitor => 방명록 insert
 exports.postVisitor = async (req, res) => {
   const data = {
-    pw: req.body.username,
+    username: req.body.username,
     comment: req.body.comment,
   };
-  Visitor.create(req.body)
-    .then((result) => {
-      console.log('create result: ', result);
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send('오류 발생');
-    });
+  // Visitor.create(req.body)
+  //   .then((result) => {
+  //     console.log('create result: ', result);
+  //     res.send(result);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).send('오류 발생');
+  //   });
 
   const createVisitor = await Visitor.create(data);
   res.send(createVisitor);
