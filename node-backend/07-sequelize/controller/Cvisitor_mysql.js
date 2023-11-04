@@ -1,52 +1,96 @@
-const Visitor = require('../model/Visitor_mysql');
+const { Visitor } = require('../model');
 
 exports.home = (req, res) => {
   res.render('index');
 };
 
+// GET /visitors => 기존 방명록 전체 조회 후 render("visitor")
 exports.visitor = (req, res) => {
-  //   const data = Visitor.getVisitors();
-  //   res.render("visitor", { data: data });
-  Visitor.getVisitors((rows) => {
-    res.render('visitor', { data: rows });
+  // select * from visitor;
+  Visitor.findAll().then((result) => {
+    console.log('findAll result: ', result);
+    console.log('0 index의 username', result[0].username); // dataValues는 생략 해도 됨!
+    // 기대 : [{id: , username: , comment: }, {id: , username: , comment: }]
+    res.render('visitor', { data: result });
   });
+
+  // Visitor.findAll({
+  //     where: { username: "lily"}
+  // })
 };
 
 // POST /visitor => 방명록 insert
-exports.postVisitor = (req, res) => {
-  // insert할 데이터
-  console.log('req.body', req.body);
-  Visitor.insertVisitor(req.body, (id) => {
-    console.log('ctrl postVisitor ', id);
-    res.send({
-      ...req.body,
-      id,
-    });
-  });
+exports.postVisitor = async (req, res) => {
+  const data = {
+    username: req.body.username,
+    comment: req.body.comment,
+  };
+  //   Visitor.create(data)
+  //     .then((result) => {
+  //       console.log("create result: ", result);
+  //       res.send(result);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       res.status(500).send("오류 발생");
+  //     });
+
+  const createVistor = await Visitor.create(data);
+  res.send(createVistor);
 };
 
 // DELETE /visitor/:id => 방명록 삭제
 exports.deleteVisitor = (req, res) => {
-  console.log(req.params);
-  Visitor.delVisitor(req.params.id, (result) => {
-    res.send({ result: result });
+  Visitor.destroy({
+    where: {
+      id: req.params.id,
+    },
+  }).then((result) => {
+    console.log('destroy result: ', result);
+    res.send({ result: true });
   });
 };
 
 // GET /visitor/:id => 방명록 하나 조회
 exports.getVisitorById = (req, res) => {
-  Visitor.getVisitorById(req.params.id, (result) => {
-    console.log('ctrl getVisitorById: ', result);
+  // select * from visitor where id = ?? limit 1;
+  Visitor.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).then((result) => {
+    console.log('findOne result: ', result);
     res.send(result);
   });
 };
 
 // PATCH /visitor/:id => 방명록 수정
 exports.patchVisitor = (req, res) => {
-  console.log(req.body);
-
-  Visitor.patchVisitor(req.body, (result) => {
-    console.log('ctrl getVisitorById: patchVisitor', result);
+  const data = {
+    username: req.body.username,
+    comment: req.body.comment,
+  };
+  // update visitor set username='??', comment='???' where id = ?;
+  Visitor.update(data, {
+    where: {
+      id: req.body.id,
+    },
+  }).then((result) => {
+    console.log('update result: ', result);
     res.send({ result: true });
+  });
+};
+
+exports.getTest = (req, res) => {
+  // select username from visitor where id = 2 order by username ASC
+  Visitor.findAll({
+    attributes: ['username', 'id'],
+    // where: {
+    //   id: req.params.id,
+    // },
+    order: [['username', 'ASC']],
+  }).then((result) => {
+    console.log('findOne result: ', result);
+    res.send(result);
   });
 };

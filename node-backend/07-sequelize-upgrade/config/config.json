@@ -1,8 +1,8 @@
 {
   "development": {
     "host": "localhost",
-    "database": "sesac_test",
-    "username": "root",
+    "database": "database_test",
+    "username: ": "root",
     "password": "zhsks754!",
     "dialect": "mysql"
   },

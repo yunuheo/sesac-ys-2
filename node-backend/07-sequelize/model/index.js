@@ -15,7 +15,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 // db = {sequelize: sequelize, Sequelize: Sequelize}
 
-db.Visitor = require('./Visitor')(sequelize, Sequelize);
+db.Visitor = require('./Login')(sequelize, Sequelize);
 // db.Visitor = require('./User')(sequelize, Sequelize);
 
 // db.Visitor에는 sequelize로 visitor 테이블을 정의한 객체를 닮음
