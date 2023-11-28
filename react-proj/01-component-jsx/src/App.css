@@ -1,0 +1,22 @@
+/* .FuncComponent__test-css--active {
+
+} */
+
+p {
+  color: orange;
+  text-align: center;
+}
+
+p {
+  background-color: lightgoldenrodyellow;
+  text-align: center;
+}
+
+.Section__section {
+  margin-bottom: 20px;
+  border: 2px solid blue;
+}
+
+.Section__title {
+  color: red;
+}
